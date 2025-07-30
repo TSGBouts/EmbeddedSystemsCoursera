@@ -1,0 +1,16 @@
+# Ignore object, assembly, and preprocess outputs
+*.o
+*.asm
+*.i
+
+# Ignore executables and build reports
+c1m2.out
+c1m2.size
+myprog
+
+# Ignore Vim swap files and backup files
+*~
+*.swp
+
+# Ignore OS metadata
+.DS_Store
