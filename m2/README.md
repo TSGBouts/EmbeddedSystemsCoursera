@@ -60,7 +60,7 @@ m2/
    size c1m2.out
 
 2. **Host Build (on your PC)**
-cd m2/src
+```cd m2/src
 make clean
 make build PLATFORM=MSP432
 # c1m2.out is now an ARM ELF executable
@@ -70,16 +70,14 @@ arm-none-eabi-objcopy -O ihex c1m2.out c1m2.hex
 mspdebug rf2500 "prog c1m2.hex"
 
 3. **Clean All Outputs**
-make clean
+```make clean
 
 4. **Generate Size Report**
-make size-report PLATFORM=HOST
+```make size-report PLATFORM=HOST
 cat c1m2.size
 
-Notes:
+## Notes:
 No changes were made to any .c or .h files—only the build system was authored.
-
 The HOST build uses your system’s gcc.
-
 The MSP432 build requires arm-none-eabi-gcc (v9+ recommended for Cortex-M4 support).
 
