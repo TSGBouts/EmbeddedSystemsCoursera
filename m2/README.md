@@ -35,6 +35,7 @@ Specified by the `PLATFORM` variable:
 
 ## Project Structure
 
+```bash
 m2/
 ├── include/ # Provided headers
 ├── msp432p401r.lds # MSP432 linker script
@@ -47,6 +48,7 @@ m2/
 ├── system_msp432p401r.c
 ├── interrupts_msp432p401r_gcc.c
 └── generated: *.i, *.asm, *.o, c1m2.out, c1m2.size
+```
 
 ## Usage
 
@@ -62,26 +64,31 @@ size c1m2.out
 
 ### Build for MSP432 (ARM Cortex‑M4)
 
-```cd m2/src
+```bash
+cd m2/src
 make clean
 make build PLATFORM=MSP432
 ```
 
 ### Generate Intel HEX file
-```arm-none-eabi-objcopy -O ihex c1m2.out c1m2.hex
+```bash
+arm-none-eabi-objcopy -O ihex c1m2.out c1m2.hex
 ```
 
 ### Flash to device (using mspdebug)
-```mspdebug rf2500 "prog c1m2.hex"
+```bash
+mspdebug rf2500 "prog c1m2.hex"
 ```
 
 ### Cleaning
-```cd m2/src
+```bash
+cd m2/src
 make clean
 ```
 
 ### Generate Size Report
-```make size-report PLATFORM=HOST
+```bash
+make size-report PLATFORM=HOST
 cat c1m2.size
 ```
 
