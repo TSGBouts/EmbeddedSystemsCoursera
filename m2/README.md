@@ -34,30 +34,32 @@ I have **not** modified any of the provided C source or header files; all work i
     SOURCES := $(COMMON_SRCS)
   endif
 
-Directory Structure
+## Directory Structure
+
 m2/
-├── include/                    # Provided headers
-├── msp432p401r.lds             # MSP432 linker script
+├── include/ # Provided headers
+├── msp432p401r.lds # MSP432 linker script
 └── src/
-    ├── Makefile                # Build rules
-    ├── sources.mk              # Source lists & include paths
-    ├── main.c                  # Provided
-    ├── memory.c                # Provided
-    ├── startup_msp432p401r_gcc.c
-    ├── system_msp432p401r.c
-    ├── interrupts_msp432p401r_gcc.c
-    └── (generated: *.o, *.i, *.asm, c1m2.out, c1m2.size)
+├── Makefile # Build rules
+├── sources.mk # Source lists & include paths
+├── main.c # Provided
+├── memory.c # Provided
+├── startup_msp432p401r_gcc.c
+├── system_msp432p401r.c
+├── interrupts_msp432p401r_gcc.c
+└── (generated: *.o, *.i, *.asm, c1m2.out, c1m2.size)
 
-How to Use
+## How to Use
 
-1. Host Build (on your PC)
-cd m2/src
-make clean
-make build PLATFORM=HOST
-./c1m2.out
-size c1m2.out
+1. **MSP432 Cross-Compile**
+   ```bash
+   cd m2/src
+   make clean
+   make build PLATFORM=HOST
+   ./c1m2.out
+   size c1m2.out
 
-2. MSP432 Cross-Compile
+2. **Host Build (on your PC)**
 cd m2/src
 make clean
 make build PLATFORM=MSP432
@@ -67,15 +69,17 @@ arm-none-eabi-objcopy -O ihex c1m2.out c1m2.hex
 # To flash to MSP432:
 mspdebug rf2500 "prog c1m2.hex"
 
-3. Clean All Outputs
+3. **Clean All Outputs**
 make clean
 
-4. Generate Size Report
+4. **Generate Size Report**
 make size-report PLATFORM=HOST
 cat c1m2.size
 
 Notes:
 No changes were made to any .c or .h files—only the build system was authored.
+
 The HOST build uses your system’s gcc.
+
 The MSP432 build requires arm-none-eabi-gcc (v9+ recommended for Cortex-M4 support).
 
