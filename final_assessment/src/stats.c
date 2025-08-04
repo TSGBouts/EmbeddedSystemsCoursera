@@ -18,9 +18,11 @@ void print_statistics(unsigned char* arr, unsigned int length){
 	printf("Minimum is: %d \n", find_minimum(arr, length));
 }
 
+#ifdef VERBOSE
 void print_array(unsigned char* arr, unsigned int length){
 	for (int i = 0; i < length; i++) printf("%u ", arr[i]);
 }
+#endif
 
 int find_median(unsigned char* arr, unsigned int length){
 	if (length % 2 == 1) return arr[length / 2];

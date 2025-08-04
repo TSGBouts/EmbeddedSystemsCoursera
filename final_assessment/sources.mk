@@ -13,6 +13,9 @@
 COMMON_SRCS := \
         main.c \
         memory.c \
+	course1.c \
+	data.c \
+	stats.c
 
 MSP432_SRCS := \
         startup_msp432p401r_gcc.c \
@@ -26,6 +29,6 @@ SOURCES := $(COMMON_SRCS)
 endif
 
 # Add your include paths to this variable
-INCLUDES := ../include \
-            ../include/common	
+INCLUDES := /include \
+            /include/common	
 

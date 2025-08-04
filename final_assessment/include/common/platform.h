@@ -22,5 +22,7 @@
 #error "Platform provided is not supported in this Build System"
 #endif
 
+#define PRINTF(...)    printf(__VA_ARGS__)
+
 #endif /* __PLATFORM_H__ */
 

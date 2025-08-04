@@ -65,6 +65,10 @@ else
 $(error Unsupported PLATFORM '$(PLATFORM)'; use MSP432 or HOST)
 endif
 
+ifeq ($(VERBOSE), 1)
+	CFLAGS += -DVERBOSE
+endif
+
 CPPFLAGS := -DPLATFORM=$(PLATFORM) $(addprefix -I, $(INCLUDES))
 
 %.i: %.c
